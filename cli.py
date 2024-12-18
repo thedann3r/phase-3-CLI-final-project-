@@ -52,6 +52,8 @@ def fish_create():
     name = input("Enter name of new fish: ")
     population = input("Enter population of new fish: ")
     age = input("Enter age of new fish: ")
-    fish = Fish(name=name, population=population, age=age)
+    body_id = input("Enter ID of new fish: ")
+    fish = Fish(name=name, population=population, age=age, body_id=body_id)
     session.add(fish)
-    session.commit
+    session.commit()
+    print(f"The fish called '{name}' with ID {fish.id} lives in the water body with ID {body_id}")

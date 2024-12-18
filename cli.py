@@ -64,4 +64,14 @@ def fish_update():
     if not fish:
         print(f"fish with ID {fish_id} does not exist")
         return
-    fish = input(f"Enter new water body name(current: {water_body.name}): ") or water_body.name
+    fish.name = input(f"Enter new fish name(current: {fish.name}): ") or fish.name
+    fish.population = input(f"Enter new fish population(current: {fish.population}): ") or fish.population
+    fish.age = int(input(f"Enter new fish age(current: {fish.age}): ")) or fish.age
+    new_body_id = input(f"Enter new fish id(current: {fish.body_id}): ") or fish.body_id
+    if new_body_id:
+        new_id = session.get(Fish, int(new_body_id))
+        if not new_id:
+            print(f"Water body with ID {new_body_id} does not exist, skipping update")
+        else:
+            fish.body_id = new_body_id
+    session.commit()

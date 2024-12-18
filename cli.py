@@ -49,4 +49,9 @@ def delete_body():
     print(f"water body with id {body_id} has been deleted succesfully.")
 
 def fish_create():
-
+    name = input("Enter name of new fish: ")
+    population = input("Enter population of new fish: ")
+    age = input("Enter age of new fish: ")
+    fish = Fish(name=name, population=population, age=age)
+    session.add(fish)
+    session.commit

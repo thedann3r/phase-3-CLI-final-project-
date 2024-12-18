@@ -9,7 +9,7 @@ class Body(Base):
     name = Column(String, nullable=False)
     type = Column(String, nullable=False)
 
-    fish = relationship("Fish", back_populates="water_body")
+    fishies = relationship("Fish", back_populates="water_body")
 
     def __repr__(self):
         return f"Body(id = {self.id}, name = '{self.name}', type = '{self.type}')"

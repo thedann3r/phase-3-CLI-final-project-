@@ -120,10 +120,54 @@ def view_fish_by_body():
     if not body:
         print(f"Body with {body_id} does not exist.")
         return
-    fish = body.fish
+    fish = body.fishies
     if not fish:
         print(f"No fish found for body with ID {body_id} .")
         return
     print(f"Fish belongning to the water body: '{body.name}' (ID {body_id}):")
     for fishie in fish:
         print(fishie)
+
+def main_menu():
+    while True:
+        print("\n Welcome aboard to the fish application")
+        print("1. Create Water body")
+        print("2. Update Water body")
+        print("3. Delete Water body")
+        print("4. Create Fish")
+        print("5. Update Fish")
+        print("7. Assign fish to a Water Body")
+        print("8. List Fish")
+        print("9. List Water bodies")
+        print("10. View Fish in Water bodies")
+        print("11. Exit")
+        option = input("Enter your choice: ")
+
+        if option == "1":
+            create_body()
+        elif option == "2":
+            update_body()
+        elif option == "3":
+            delete_body()
+        elif option == "4":
+            fish_create()
+        elif option == "5":
+            fish_update()
+        elif option == "6":
+            fish_delete()
+        elif option == "7":
+            assign_fish()
+        elif option == "8":
+            list_fish()
+        elif option == "9":
+            list_body()
+        elif option == "10":
+            view_fish_by_body()
+        elif option == "11":
+            print("leave us a five star ratng, au revoir ...")
+            sys.exit()
+        else:
+            print("Invalid choice, please try again.")
+if __name__ == "__main__":
+    innit_db()
+    main_menu()

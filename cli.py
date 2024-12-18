@@ -107,4 +107,9 @@ def list_fish():
     for fis in fish:
         print(fis)
 
-~
+def list_body():
+    body = session.query(Body).all()
+    if not body:
+        print("No water body found")
+    for bod in body:
+        print(bod)

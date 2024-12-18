@@ -78,4 +78,7 @@ def fish_update():
     print(f"Fish with ID {fish_id} updated successfully.")
 
 def fish_delete():
-    
+    fish_id = int(input("Enter fish you want to delete: "))
+    fish = session.get(Fish, fish_id)
+    if not fish:
+        print(f"Fish with ID {fish_id} does not exist")

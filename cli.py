@@ -98,3 +98,7 @@ def assign_fish():
         return
     fish.body_id = body_id
     session.commit()
+    print("Fish assigned to water body successfully.")
+
+def list_fish():
+    

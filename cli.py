@@ -34,7 +34,7 @@ def update_body():
     water_body.name = input(f"Enter new water body name(current: {water_body.name}): ") or water_body.name
     water_body.type = input(f"Enter new water body type(current: {water_body.type}): ") or water_body.type
     session.commit()
-    print(f"water body with id {water_body.id} has been updated succesfully.")
+    print(f"water body with id {body_id} has been updated succesfully.")
 
 # delete the water body
 
@@ -46,4 +46,7 @@ def delete_body():
         return
     session.delete(water_body)
     session.commit()
+    print(f"water body with id {body_id} has been deleted succesfully.")
+
+def fish_create():
 

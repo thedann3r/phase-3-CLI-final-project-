@@ -92,3 +92,9 @@ def assign_fish():
     body_id = int(input("Enter water body ID: "))
     fish = session.get(Fish, fish_id)
     body = session.get(Body, body_id)
+
+    if not fish or not body:
+        print("Invalid fish id or water body id.")
+        return
+    fish.body_id = body_id
+    session.commit()

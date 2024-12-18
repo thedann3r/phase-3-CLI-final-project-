@@ -11,7 +11,7 @@ session = Session()
 
 def innit_db():
     Base.metadata.create_all(engine)
-    print("Batabase Intialized")
+    print("Database Intialized")
 
 # create a water body 
 
@@ -26,4 +26,13 @@ def create_body():
 # update the water body
 
 def update_body():
-    
+    body_id = int(input("Enter Water body ID to update: "))
+    water_body =session.get(Body, body_id)
+    if not water_body:
+        print(f"Water body of ID {body_id} does not exist.")
+        return
+    water_body.name = input(f"Enter new water body name(current: {water_body.name}): ") or water_body.name
+    water_body.type = input(f"Enter new water body type(current: {water_body.type}): ") or water_body.type
+    session.commit()
+    print(f"water body with id {water_body.id} has been updated succesfully.")
+

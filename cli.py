@@ -51,9 +51,20 @@ def delete_body():
 def fish_create():
     name = input("Enter name of new fish: ")
     population = input("Enter population of new fish: ")
-    age = input("Enter age of new fish: ")
-    body_id = input("Enter ID of new fish: ")
+    age = int(input("Enter age of new fish: "))
+    body_id = int(input("Enter ID of new fish: "))
     fish = Fish(name=name, population=population, age=age, body_id=body_id)
     session.add(fish)
     session.commit()
     print(f"The fish called '{name}' with ID {fish.id} lives in the water body with ID {body_id}")
+
+def fish_update():
+    body_id = int(input("Enter Water body ID to update: "))
+    water_body =session.get(Body, body_id)
+    if not water_body:
+        print(f"Water body of ID {body_id} does not exist.")
+        return
+    water_body.name = input(f"Enter new water body name(current: {water_body.name}): ") or water_body.name
+    water_body.type = input(f"Enter new water body type(current: {water_body.type}): ") or water_body.type
+    session.commit()
+    print(f"water body with id {body_id} has been updated succesfully.")

@@ -82,3 +82,7 @@ def fish_delete():
     fish = session.get(Fish, fish_id)
     if not fish:
         print(f"Fish with ID {fish_id} does not exist")
+        return
+    session.delete(fish)
+    session.commit()
+    print(f"Fish with ID {fish_id} has been deleted succesfully.")

@@ -104,3 +104,7 @@ def list_fish():
     fish = session.query(Fish).all()
     if not fish:
         print("No fish found")
+    for fis in fish:
+        print(fis)
+
+~

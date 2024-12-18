@@ -38,3 +38,12 @@ def update_body():
 
 # delete the water body
 
+def delete_body():
+    body_id = int(input("Enter water body ID to be deleted: "))
+    water_body =session.get(Body, body_id)
+    if not water_body:
+        print(f"Water body of ID {body_id} does not exist.")
+        return
+    session.delete(water_body)
+    session.commit()
+

@@ -101,4 +101,6 @@ def assign_fish():
     print("Fish assigned to water body successfully.")
 
 def list_fish():
-    
+    fish = session.query(Fish).all()
+    if not fish:
+        print("No fish found")

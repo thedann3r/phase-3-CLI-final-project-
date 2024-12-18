@@ -59,12 +59,9 @@ def fish_create():
     print(f"The fish called '{name}' with ID {fish.id} lives in the water body with ID {body_id}")
 
 def fish_update():
-    body_id = int(input("Enter Water body ID to update: "))
-    water_body =session.get(Body, body_id)
-    if not water_body:
-        print(f"Water body of ID {body_id} does not exist.")
+    fish_id = int(input("Enter ID for fish to be updated: "))
+    fish = session.get(Fish, fish_id)
+    if not fish:
+        print(f"fish with ID {fish_id} does not exist")
         return
-    water_body.name = input(f"Enter new water body name(current: {water_body.name}): ") or water_body.name
-    water_body.type = input(f"Enter new water body type(current: {water_body.type}): ") or water_body.type
-    session.commit()
-    print(f"water body with id {body_id} has been updated succesfully.")
+    fish = input(f"Enter new water body name(current: {water_body.name}): ") or water_body.name

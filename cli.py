@@ -113,3 +113,17 @@ def list_body():
         print("No water body found")
     for bod in body:
         print(bod)
+
+def view_fish_by_body():
+    body_id = int(input("Enter body ID to view fish: "))
+    body = session.get(Body, body_id)
+    if not body:
+        print(f"Body with {body_id} does not exist.")
+        return
+    fish = body.fish
+    if not fish:
+        print(f"No fish found for body with ID {body_id} .")
+        return
+    print(f"Fish belongning to the water body: '{body.name}' (ID {body_id}):")
+    for fishie in fish:
+        print(fishie)

@@ -75,3 +75,4 @@ def fish_update():
         else:
             fish.body_id = new_body_id
     session.commit()
+    print(f"Fish with ID {fish_id} updated successfully.")

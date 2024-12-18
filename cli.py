@@ -36,3 +36,5 @@ def update_body():
     session.commit()
     print(f"water body with id {water_body.id} has been updated succesfully.")
 
+# delete the water body
+

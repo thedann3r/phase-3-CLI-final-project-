@@ -86,3 +86,9 @@ def fish_delete():
     session.delete(fish)
     session.commit()
     print(f"Fish with ID {fish_id} has been deleted succesfully.")
+
+def assign_fish():
+    fish_id = int(input("Enter fish ID: "))
+    body_id = int(input("Enter water body ID: "))
+    fish = session.get(Fish, fish_id)
+    body = session.get(Body, body_id)
